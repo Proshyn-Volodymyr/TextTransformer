@@ -1,16 +1,19 @@
+import java.util.Arrays;
+
 public class UpDownTransformer extends TextTransformer{
     @Override
     public String transform(String text) {
-        char[] charArray = text.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
+       StringBuilder str = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            Character ch = text.charAt(i);
             if(i % 2 != 0){
-                Character ch = new Character(charArray[i]);
-                ch.toString().toUpperCase();
+                char upChar = Character.toUpperCase(ch);
+                str.append(upChar);
             } else if (i % 2 == 0) {
-                Character ch = new Character(charArray[i]);
-                ch.toString().toLowerCase();
+                char lowChar = Character.toLowerCase(ch);
+                str.append(lowChar);
             }
         }
-        return charArray.toString();
+        return str.toString();
     }
 }
